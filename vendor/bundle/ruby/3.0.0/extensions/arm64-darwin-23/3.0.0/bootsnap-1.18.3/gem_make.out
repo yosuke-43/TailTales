@@ -1,0 +1,22 @@
+current directory: /Users/yosuketokito/workspace_runteq/ポートフォリオ_リベンジ/revenge_portfolio/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.18.3/ext/bootsnap
+/Users/yosuketokito/.rbenv/versions/3.0.2/bin/ruby extconf.rb
+checking for fdatasync() in unistd.h... yes
+checking for whether -D_GNU_SOURCE is accepted as CPPFLAGS... yes
+checking for whether -O3 is accepted as CFLAGS... yes
+checking for whether -std=c99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /Users/yosuketokito/workspace_runteq/ポートフォリオ_リベンジ/revenge_portfolio/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.18.3/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20240322-55656-z2yzqb sitelibdir\=./.gem.20240322-55656-z2yzqb clean
+
+current directory: /Users/yosuketokito/workspace_runteq/ポートフォリオ_リベンジ/revenge_portfolio/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.18.3/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20240322-55656-z2yzqb sitelibdir\=./.gem.20240322-55656-z2yzqb
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/yosuketokito/workspace_runteq/ポートフォリオ_リベンジ/revenge_portfolio/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.18.3/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20240322-55656-z2yzqb sitelibdir\=./.gem.20240322-55656-z2yzqb install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20240322-55656-z2yzqb/bootsnap
+
+current directory: /Users/yosuketokito/workspace_runteq/ポートフォリオ_リベンジ/revenge_portfolio/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.18.3/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20240322-55656-z2yzqb sitelibdir\=./.gem.20240322-55656-z2yzqb clean
