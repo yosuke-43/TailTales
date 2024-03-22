@@ -66,3 +66,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# 追加gem
+gem 'bootstrap', '~> 5.3.0'
+gem 'jquery-rails'
+gem 'sassc-rails'
