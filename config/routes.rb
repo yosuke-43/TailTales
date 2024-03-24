@@ -10,5 +10,12 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
   # 投稿関係のルーティング
-  resources :boards
+  resources :boards do
+    collection do
+      get 'bookmarks'
+    end
+  end
+
+  # お気に入り投稿のルーティング
+  resources :bookmarks, only: %i[create destroy]
 end

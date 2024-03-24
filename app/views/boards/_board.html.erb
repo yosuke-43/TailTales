@@ -22,8 +22,7 @@
             <% if current_user.own?(board) %>
               <%= render 'crud_menus', board: board %>
             <% else %>
-              <%#= render 'bookmark_button', board: board %>
-              <%= '他ユーザーの投稿' %>
+              <%= render 'bookmark_button', board: board %>
             <% end %>
           <% end %>
         </div>

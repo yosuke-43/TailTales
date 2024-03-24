@@ -10,10 +10,30 @@ class User < ApplicationRecord
 
   # 他テーブルとの関係性
   has_many :boards, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  #bookmark_boardsは仮想的なテーブルで、bookmarksテーブルを通したboardsテーブルの情報を持っている
+  has_many :bookmark_boards, through: :bookmarks, source: :board 
 
-  #独自メソッド
+  #独自メソッド------------------------------------------------------------------------------------
+
   # current_userかどうか確認する
   def own?(object)
     id == object.user_id
   end
+
+  # ブックマークに追加する
+  def bookmark(board)
+    bookmark_boards << board
+  end
+
+  # ブックマークを外す
+  def unbookmark(board)
+    bookmark_boards.destroy(board)
+  end
+
+  # ブックマークしているか確認する
+  def bookmark?(board)
+    bookmark_boards.include?(board)
+  end
+  
 end

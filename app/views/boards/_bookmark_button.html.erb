@@ -1,0 +1,19 @@
+<turbo-frame id='bookmark_button_area_<%= board.id %>' >
+  <% if current_user.bookmark?(board) %>
+    <%= link_to bookmark_path(current_user.bookmarks.find_by(board_id: board.id)), 
+                id: "turbo-bookmark-button-for-board-#{board.id}", 
+                class:"float-right", 
+                data: { turbo_method: :delete } do %>
+      <%= icon 'fas', 'heart' %>
+    <% end %>
+    <span class='mx-2'><%= board.bookmarks.count %></span>
+  <% else %>
+    <%= link_to bookmarks_path(board_id: board.id), 
+                id: "turbo-bookmark-button-for-board-#{board.id}", 
+                class:"float-right", 
+                data: { turbo_method: :post } do %>
+      <%= icon 'far', 'heart' %>
+    <% end %>
+    <span class='mx-2'><%= board.bookmarks.count %></span>
+  <% end %>
+</turbo-frame>
