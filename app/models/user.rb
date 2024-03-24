@@ -11,8 +11,8 @@ class User < ApplicationRecord
   # 他テーブルとの関係性
   has_many :boards, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  #bookmark_boardsは仮想的なテーブルで、bookmarksテーブルを通したboardsテーブルの情報を持っている
-  has_many :bookmark_boards, through: :bookmarks, source: :board 
+  has_many :bookmark_boards, through: :bookmarks, source: :board #bookmark_boardsは仮想的なテーブルで、bookmarksテーブルを通したboardsテーブルの情報を持っている
+  has_many :comments, dependent: :destroy
 
   #独自メソッド------------------------------------------------------------------------------------
 

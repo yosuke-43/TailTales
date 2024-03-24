@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   # 投稿関係のルーティング
   resources :boards do
+    resources :comments, only: %i[create destroy], shallow: true
     collection do
       get 'bookmarks'
     end

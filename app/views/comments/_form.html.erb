@@ -1,0 +1,10 @@
+<div class="row mb-3">
+  <div class="col-lg-8 offset-lg-2">
+    <%= form_with model: comment, url: [board, comment], data: { turbo_method: :post } do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :body %>
+      <%= f.text_area :body, class: 'form-control mb-3', id: 'turbo-new-comment-body', row: 4, placeholder: t('comments.partial.require_comment') %>
+      <%= f.submit t('defaults.post_comment'), class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
