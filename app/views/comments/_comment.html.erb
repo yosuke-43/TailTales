@@ -1,0 +1,31 @@
+<tr id="comment_<%= comment.id %>">
+  <td style="width: 60px">
+    <%= image_tag 'sample.jpg', class: 'rounded-circle', size: '50x50' %>
+  </td>
+  <td>
+    <h3 class="small"><%= "#{comment.user.name}さん" %></h3>
+    <div id="turbo-comment-<%= comment.id %>">
+      <%= simple_format(comment.body) %>
+    </div>
+    <div class="small text-muted" id="turbo-comment-time-<%= comment.id %>">
+      <%= t('activerecord.attributes.comment.created_at') %>：<%= l comment.created_at, format: :long  %>
+    </div>
+  </td>
+
+  <% if logged_in? %>
+    <% if current_user.own?(comment) %>
+      <td class="action">
+        <ul class="list-inline justify-content-center" style="float: right;">
+          <li class="list-inline-item">
+            <%= link_to comment_path(comment),
+                        class: 'turbo-delete-comment-button',
+                        data: { turbo_method: :delete, turbo_confirm: t('comments.partial.delete_confirm') } do %>
+              <%= icon 'fas', 'trash' %>
+              <%= t('comments.partial.delete_button') %>
+            <% end %>
+          </li>
+        </ul>
+      </td>
+    <% end %>
+  <% end %>
+</tr>

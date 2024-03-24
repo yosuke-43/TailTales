@@ -1,0 +1,9 @@
+<%= turbo_stream.update 'new_comment_area' do %>
+  <%= render 'comments/form', comment: @comment, board: @board %>
+<% end %>
+
+<%= turbo_stream.update 'comment_index_area' do %>
+  <% @comments.each do |comment| %>
+    <%= render 'comments/comments', { comments: @comments } %>
+  <% end %>
+<% end %>

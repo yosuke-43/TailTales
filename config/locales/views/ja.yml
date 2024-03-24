@@ -4,8 +4,10 @@ ja:
     register: '登録'
     logout: 'ログアウト'
     post: '投稿'
+    post_comment: 'コメント作成'
     message:
       created: "%{item}を作成しました"
+      not_created: "{item}を作成できませんでした"
       to_post: '投稿する'
       delete_confirm: 'の投稿を削除しますか？'
       updated: "%{item}を更新しました"
@@ -50,8 +52,15 @@ ja:
     show:
       title: '投稿詳細'
       to_board_index: '投稿一覧へ戻る'
+      no_comment: 'コメントはまだありません'
     edit:
       title: '投稿編集'
     bookmarks:
       title: 'お気に入り投稿'
       no_result: 'お気に入り投稿はありません'
+  comments:
+    partial:
+      require_comment: 'コメントを入力してください'
+      delete_confirm: 'コメントを削除してもよろしいですか？'
+      delete_button: 'コメント削除'
+      comments_index: 'コメント一覧'

@@ -12,13 +12,17 @@
             </div>
             <div class='col-md-9'>
               <h3 class="d-inline"><%= @board.title %></h3>
-              <% if logged_in? %>
-                <%= render 'crud_menus', board: @board if current_user.own?(@board) %>
-              <% end %>
               <ul class="list-inline">
                 <li class="list-inline-item">by <%= "#{@board.user.name}さん" %></li>
                 <li class="list-inline-item"><%= t('activerecord.attributes.board.created_at') %>：<%= l @board.created_at, format: :long  %></li>
               </ul>
+              <% if logged_in? %>
+                <% if current_user.own?(@board) %>
+                  <%= render 'crud_menus', board: @board %>
+                <% else %>
+                  <%= render 'bookmark_button', board: @board %>
+                <% end %>
+              <% end %>
             </div>
           </div>
           <p><%= simple_format(@board.body) %></p>
@@ -27,21 +31,24 @@
     </div>
   </div>
 
-<%
-=begin
-%>
   <!-- コメントフォーム -->
-    <% if logged_in? %>
+  <% if logged_in? %>
+    <div id='new_comment_area'>
       <%= render 'comments/form', { board: @board, comment: @comment } %>
-    <% end %>
+    </div>
+  <% end %>
 
   <!-- コメントエリア -->
   <div id="comment_index_area">
-    <%= render 'comments/comments', { comments: @comments } %>
+    <% if @comments.present? %>
+      <%= render 'comments/comments', { comments: @comments } %>
+    <% else %>
+      <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+        <%= t('.no_comment') %>
+      </div>
+    <% end %>
   </div>
-<%
-=end
-%>
+
   <%# 投稿一覧に戻るボタンの設置 %>
   <div class='text-center'>
     <%= link_to t('.to_board_index'), boards_path %>
