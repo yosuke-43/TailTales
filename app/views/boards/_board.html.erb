@@ -1,0 +1,33 @@
+<div class="row mb-2">
+  <div class="col-md-12">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      
+      <!-- 画像の列 -->
+      <div class="col-md-auto order-md-first">
+        <%= image_tag "board_placeholder", class: 'bd-placeholder-img', size: '200x200' %>
+      </div>
+      
+      <!-- 情報の列 -->
+      <div class="col p-4 d-flex flex-column position-static">
+        <strong class="d-inline-block mb-0 text-primary-emphasis">
+          <%= "#{board.user.name}さん" %>
+        </strong>
+        <strong class="d-inline-block mb-0 text-primary-emphasis">
+          <%= "#{t('activerecord.attributes.board.created_at')}：#{l board.created_at, format: :long}" %>
+        </strong>
+        <h2 class="mb-2"><%= link_to board.title, board_path(board)  %></h2>
+        <!-- ログインユーザーにのみ表示されるメニュー -->
+        <div class="mt-2">
+          <% if logged_in? %>
+            <% if current_user.own?(board) %>
+              <%= render 'crud_menus', board: board %>
+            <% else %>
+              <%#= render 'bookmark_button', board: board %>
+              <%= '他ユーザーの投稿' %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

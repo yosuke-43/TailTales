@@ -1,0 +1,49 @@
+<% content_for(:title, t('.title')) %>
+<div class="container pt-5">
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= t('.title') %></h1>
+      <!-- 掲示板内容 -->
+      <article class="card">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col-md-3'>
+              <%= image_tag "board_placeholder", class: 'card-img-top img-fluid', size: '200x200' %>
+            </div>
+            <div class='col-md-9'>
+              <h3 class="d-inline"><%= @board.title %></h3>
+              <% if logged_in? %>
+                <%= render 'crud_menus', board: @board if current_user.own?(@board) %>
+              <% end %>
+              <ul class="list-inline">
+                <li class="list-inline-item">by <%= "#{@board.user.name}さん" %></li>
+                <li class="list-inline-item"><%= t('activerecord.attributes.board.created_at') %>：<%= l @board.created_at, format: :long  %></li>
+              </ul>
+            </div>
+          </div>
+          <p><%= simple_format(@board.body) %></p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+<%
+=begin
+%>
+  <!-- コメントフォーム -->
+    <% if logged_in? %>
+      <%= render 'comments/form', { board: @board, comment: @comment } %>
+    <% end %>
+
+  <!-- コメントエリア -->
+  <div id="comment_index_area">
+    <%= render 'comments/comments', { comments: @comments } %>
+  </div>
+<%
+=end
+%>
+  <%# 投稿一覧に戻るボタンの設置 %>
+  <div class='text-center'>
+    <%= link_to t('.to_board_index'), boards_path %>
+  </div>
+</div>

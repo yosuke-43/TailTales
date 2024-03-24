@@ -2,10 +2,14 @@ ja:
   activerecord:
     models:
       user: "ユーザー"
+      board: "投稿"
     attributes:
       user:
         name: '名前'
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード（確認用）'
-        
+      board:
+        title: 'タイトル'
+        body: '本文'  
+        created_at: '投稿日時'

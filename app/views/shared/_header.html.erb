@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to 'Home', root_path, class: 'nav-link' %>
+          <%= link_to 'Home', root_path, class: 'nav-link', data: { turbo_stream: true } %>
         </li>
         <li class="nav-item">
           <%= link_to '犬種マッチ診断', "#", class: 'nav-link' %>
@@ -27,9 +27,9 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#"></a></li>
-            <%= link_to t('boards.index.title'), "#", class: 'dropdown-item' %>
+            <%= link_to t('boards.index.title'), boards_path, class: 'dropdown-item', data: { turbo_stream: true } %>
             <%= link_to t('boards.bookmarks.title'), "#", class: 'dropdown-item' %>
-            <%= link_to t('boards.new.title'), "#", class: 'dropdown-item' %>
+            <%= link_to t('boards.new.title'), new_board_path, class: 'dropdown-item', data: { turbo_stream: true } %>
           </ul>
         </li>
       </ul>
