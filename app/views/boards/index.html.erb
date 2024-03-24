@@ -1,0 +1,45 @@
+<% content_for(:title, t('.title')) %>
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1 col-md-12">
+
+      <!-- 投稿作成誘導ボタン -->
+      <% if logged_in? %>
+        <div class="d-grid gap-2 mb-2">
+          <%= link_to t('boards.index.post'), new_board_path, class: "btn btn-outline-primary", role: "button", data: { turbo_stream: true } %>
+        </div>
+      <% else %>
+        <div class="d-grid gap-2 mb-2">
+          <%= link_to t('boards.index.before_login_post'), new_board_path, class: "btn btn-outline-primary", role: "button" %>
+        </div>
+      <% end %>
+
+<%
+=begin 
+%>
+
+      <%# 検索フォーム %>
+      <%= content_tag(:div, class: 'mb-1') do %>
+        <%= content_tag(:i, nil, class: 'fas fa-search', style: 'margin-right: 5px;') %> 投稿検索
+      <% end %>
+      <%= render 'search_form', url: boards_path %>
+    </div>
+  </div>
+
+<%
+=end 
+%>
+
+  <!-- 掲示板一覧 -->
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <% if @boards.present? %>
+          <%= render @boards %>
+        <% else %>
+          <p><%= t('boards.bookmarks.no_result') %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

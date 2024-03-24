@@ -6,6 +6,11 @@ ja:
     post: '投稿'
     message:
       created: "%{item}を作成しました"
+      to_post: '投稿する'
+      delete_confirm: 'の投稿を削除しますか？'
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
   static_pages:
     top:
       title: 'TAIL TALES'
@@ -26,3 +31,21 @@ ja:
       fail: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました'
+  boards:
+    new:
+      title: '投稿作成'
+      post: '投稿する'
+    create:
+      success: '投稿しました'
+      fail: '投稿できませんでした'
+    index:
+      title: '投稿一覧'
+      post: '投稿する'
+      before_login_post: 'ログインして投稿する'
+    show:
+      title: '投稿詳細'
+      to_board_index: '投稿一覧へ戻る'
+    edit:
+      title: '投稿編集'
+    update:
+    destroy:

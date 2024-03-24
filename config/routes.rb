@@ -8,4 +8,7 @@ Rails.application.routes.draw do
 
   # 会員登録のルーティング
   resources :users, only: [:new, :create]
+
+  # 投稿関係のルーティング
+  resources :boards
 end

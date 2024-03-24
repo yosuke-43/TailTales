@@ -1,0 +1,12 @@
+<ul class='crud-menu-btn list-inline float-right m-0'>
+  <li class="list-inline-item">
+    <%= link_to edit_board_path(board), id: "button-edit-#{board.id}", data: { turbo_stream: true } do %>
+      <%= icon 'fa', 'pen' %>
+    <% end %>
+  </li>
+  <li class="list-inline-item">
+    <%= link_to board_path(board), id: "button-delete-#{board.id}", data: { turbo_method: :delete, turbo_confirm: "#{board.title}#{t('defaults.message.delete_confirm')}" } do %>
+      <%= icon 'fas', 'trash' %>
+    <% end %>
+  </li>
+</ul>
