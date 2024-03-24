@@ -10,27 +10,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to 'Home', root_path, class: 'nav-link' %>
+          <%= link_to t('defaults.header.to_home'), root_path, class: 'nav-link', data: { turbo_stream: true } %>
         </li>
         <li class="nav-item">
-          <%= link_to '犬種マッチ診断', "#", class: 'nav-link' %>
+          <%= link_to t('defaults.header.to_diagnoses'), "#", class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to '犬種一覧', "#", class: 'nav-link' %>
+          <%= link_to t('defaults.header.to_dogs_index'), "#", class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'ログイン', login_path, class: 'nav-link' %>
+          <%= link_to t('defaults.header.to_login'), login_path, class: 'nav-link' %>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            投稿
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#"></a></li>
-            <%= link_to t('boards.index.title'), boards_path, class: 'dropdown-item' %>
-            <%= link_to t('boards.bookmarks.title'), "#", class: 'dropdown-item' %>
-            <%= link_to t('boards.new.title'), "#", class: 'dropdown-item' %>
-          </ul>
+        <li class="nav-item">
+          <%= link_to t('boards.index.title'), boards_path, class: 'nav-link', data: { turbo_stream: true } %>
         </li>
       </ul>
     </div>

@@ -11,10 +11,15 @@ ja:
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
+    header:
+      to_home: 'HOME'
+      to_diagnoses: '犬種マッチ診断'
+      to_dogs_index: '犬種一覧'
+      to_logout: 'ログアウト'
+      to_login: 'ログイン'
   static_pages:
     top:
       title: 'TAIL TALES'
-      to_diagnoses: '診断へ'
   users:
     new:
       title: 'ユーザー登録'
@@ -47,5 +52,6 @@ ja:
       to_board_index: '投稿一覧へ戻る'
     edit:
       title: '投稿編集'
-    update:
-    destroy:
+    bookmarks:
+      title: 'お気に入り投稿'
+      no_result: 'お気に入り投稿はありません'
