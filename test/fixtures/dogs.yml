@@ -1,0 +1,37 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  breed: MyString
+  height: MyString
+  weight: MyString
+  hair_length: 1
+  dog_size_type: one
+  dog_image: MyString
+  dog_country: one
+  activity_level: 1
+  solitude_tolerance: 1
+  care_difficulty: 1
+  catchphrase: MyText
+  features_sentence: MyText
+  personality_sentence: MyText
+  history_sentence: MyText
+  recommended_for_whom: MyText
+  display_in_index: 1
+
+two:
+  breed: MyString
+  height: MyString
+  weight: MyString
+  hair_length: 1
+  dog_size_type: two
+  dog_image: MyString
+  dog_country: two
+  activity_level: 1
+  solitude_tolerance: 1
+  care_difficulty: 1
+  catchphrase: MyText
+  features_sentence: MyText
+  personality_sentence: MyText
+  history_sentence: MyText
+  recommended_for_whom: MyText
+  display_in_index: 1
