@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class='navbar-brand' href='/'>
+    <%= link_to root_path, class:'navbar-brand', data: { turbo_stream: true } do %>
       <%= image_tag 'logo.png', size: '80x80' %>
-    </a>
+    <% end %>
     <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -13,7 +13,7 @@
           <%= link_to t('defaults.header.to_home'), root_path, class: 'nav-link', data: { turbo_stream: true } %>
         </li>
         <li class="nav-item">
-          <%= link_to t('defaults.header.to_diagnoses'), "#", class: 'nav-link' %>
+          <%= link_to t('defaults.header.to_diagnoses'), new_diagnosis_path, class: 'nav-link', data: { turbo_stream: true } %>
         </li>
         <li class="nav-item">
           <%= link_to t('defaults.header.to_dogs_index'), "#", class: 'nav-link' %>

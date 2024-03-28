@@ -75,4 +75,4 @@ gem 'sorcery'
 gem "rails-i18n", "~> 7.0.0"
 gem "font-awesome-sass"
 gem 'faker'
-
+gem 'pry-rails'

@@ -1,0 +1,41 @@
+<% content_for :js do %>
+  <%= javascript_import_module_tag "diagnosis/new" %>
+<% end %>
+
+<div class="container start_content">
+  <div class="row">
+    <div id="start_content" class="col-md-10 col-lg-5 mx-auto mt-3 text-light text-center">
+      <h1>質問は合計で12問です。</h1>
+      <br>
+      <div id="start_link_container">
+        <%= link_to "診断スタート", "#", id: "start_link", class: "btn btn-light text-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container diagnosis-all start_content mt-3" id="diagnostics_container" style="display: none;">
+  <div class="row">
+    <div class="col-md-10 col-lg-5 mx-auto text-light ">
+      <h1><%= t('.title') %></h1>
+        <%= form_with(url: diagnoses_path, method: 'post') do |form| %>
+          <% @questions.each do |question| %>
+            <div class="mb-3 question_box">
+              <p><strong><%= question.id %>  . <%= question.content %></strong></p>
+              <div class="d-flex flex-column justify-content-center">
+                <% question.answers.each do |user_answer| %>
+                  <div class="form-check">
+                    <%= form.radio_button "answers[#{question.id}]", user_answer.id, class: "form-check-input" %>
+                    <h4><%= form.label "answers[#{question.id}]", user_answer.content, class: "form-check-label mb-3" %></h4>
+                  </div>
+                  <br>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+          <button type="button" id="question_return" class="btn btn-light text-secondary mb-3">前へ</button>
+          <%= form.submit t('.sumit_to_result'), id: "question_submit", class: "btn btn-light text-secondary mb-3" %>
+        <% end %>
+    </div>
+  </div>
+</div>
