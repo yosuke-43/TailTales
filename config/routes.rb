@@ -19,4 +19,8 @@ Rails.application.routes.draw do
 
   # お気に入り投稿のルーティング
   resources :bookmarks, only: %i[create destroy]
+
+  #診断関係のルーティング
+  resources :diagnoses, only: [:new, :create]
+  get 'diagnoses', to: 'diagnoses#result'
 end

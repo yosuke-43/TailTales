@@ -26,6 +26,7 @@ ja:
     new:
       title: 'ユーザー登録'
       to_login_page: 'ログインページへ'
+      password_placeholder: "3文字以上で入力してください"
     create:
       success: 'ユーザー登録が完了しました'
       fail: 'ユーザー登録できませんでした'
@@ -64,3 +65,7 @@ ja:
       delete_confirm: 'コメントを削除してもよろしいですか？'
       delete_button: 'コメント削除'
       comments_index: 'コメント一覧'
+  diagnoses:
+    new:
+      title: '犬種マッチ診断'
+      sumit_to_result: '診断結果へ'

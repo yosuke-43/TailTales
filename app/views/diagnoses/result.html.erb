@@ -1,0 +1,7 @@
+<h1>診断結果</h1>
+
+<% if @recommend_dogs.present? %>
+  <%= render partial: "recommend_dog", collection: @recommend_dogs %>
+<% else %>
+  <p><%= t('.no_match') %></p>
+<% end %>

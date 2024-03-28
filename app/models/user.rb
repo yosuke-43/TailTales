@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_boards, through: :bookmarks, source: :board #bookmark_boardsは仮想的なテーブルで、bookmarksテーブルを通したboardsテーブルの情報を持っている
   has_many :comments, dependent: :destroy
+  has_one :diagnosis, dependent: :destroy
 
   #独自メソッド------------------------------------------------------------------------------------
 
