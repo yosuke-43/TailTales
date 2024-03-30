@@ -1,0 +1,140 @@
+// このページ全体について-------------------------------------------------------------------------
+.dog-show-background {
+  background-color: #FFCC33;
+  border-left: 15px solid lightblue;
+  border-right: 15px solid lightblue;
+}
+
+.dog-show-background .subtitle h1 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+// 1個目のブロック、dog-picture-infoについて-------------------------------------------------------
+.dog-picture-info h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.dog-picture-info p {
+  font-size: 1.5rem;
+}
+
+.rectangle-block {
+  border-radius: 10px; /* 角を丸くする */
+  padding: 10px; /* 内側の余白を設定 */
+
+  &.block-1 {
+    background-color: #f0f0f0; /* 背景色を灰色に設定 */
+  }
+}
+
+.dog-picture-info .dog-image {
+  max-width: 70%; /* 最大幅を70%に設定 */
+  height: auto; /* 高さを自動に設定 */
+  border: 7px solid black;
+  border-radius: 10px;
+}
+
+// 2個目のブロック、dog-base-infoについて-------------------------------------------------------
+.dog-base-info .col-md-4 {
+  margin-bottom: 20px; /* 縦方向の間隔を追加 */
+}
+
+.rectangle-block.block-1 {
+  background-color: #e4ffd4; /* デフォルトの背景色 */
+  transition: background-color 0.3s; /* 背景色の変化をスムーズにするトランジション */
+  
+  &:hover {
+    background-color: #4CC082; /* ホバー時の背景色 */
+    color: white;
+  }
+}
+
+.rectangle-block.block-2 {
+  background-color: #FFE9E5; /* デフォルトの背景色 */
+  transition: background-color 0.3s; /* 背景色の変化をスムーズにするトランジション */
+  
+  &:hover {
+    background-color: #EC6C5A; /* ホバー時の背景色 */
+    color: white;
+  }
+}
+
+.rectangle-block.block-3 {
+  background-color: #f0f0f0; /* デフォルトの背景色 */
+  transition: background-color 0.3s; /* 背景色の変化をスムーズにするトランジション */
+  
+  &:hover {
+    background-color: #a1a1a1; /* ホバー時の背景色 */
+    color: white;
+  }
+}
+
+.rectangle-block.block-4 {
+  background-color: #cbefff; /* デフォルトの背景色 */
+  transition: background-color 0.3s; /* 背景色の変化をスムーズにするトランジション */
+  
+  &:hover {
+    background-color: #67d2ff; /* ホバー時の背景色 */
+    color: white;
+  }
+}
+
+.rectangle-block.block-5 {
+  background-color: #ffe4cc; /* デフォルトの背景色 */
+  transition: background-color 0.3s; /* 背景色の変化をスムーズにするトランジション */
+  
+  &:hover {
+    background-color: #cf9564; /* ホバー時の背景色 */
+    color: white;
+  }
+}
+
+.dog-base-info-icon-horizontal-margin {
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.dog-base-info-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 15px; /* 上部の余白を設定 */
+}
+
+.dog-base-info-text-container h3 {
+  font-weight: bold;
+  margin-bottom: 1px;
+}
+
+// 3個目のブロック、dog-detail-infoについて-------------------------------------------------------
+
+.dog-detail-info .col-md-6 {
+  margin-bottom: 20px;
+}
+
+.rectangle-block.detail-block {
+  border-radius: 10px; /* 角を丸くする */
+  padding: 10px; /* 内側の余白を設定 */
+  background-color: white;
+  border: 5px solid black;
+}
+
+// 4個目のブロック、dog-detail-infoについて-------------------------------------------------------
+
+.dog-youtube-info .col-md-7 {
+  height: 480px;
+}
+
+.dog-youtube-info .btn-primary {
+  font-size: 4rem; /* ボタンの文字サイズを大きくする */
+  background-color: pink; /* ボタンの背景色をピンクに変更する */
+  border-color: pink; /* ボタンの枠線色もピンクに変更する */
+
+  &:hover {
+    background-color: #ff69b4; /* ホバー時の背景色を変更 */
+    border-color: #ff69b4; /* ホバー時の枠線色を変更 */
+  }
+}

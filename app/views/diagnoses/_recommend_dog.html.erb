@@ -27,7 +27,7 @@
           <h3 class="mb-0"><%= recommend_dog.breed %></h3>
           <div class="mb-1 text-body-secondary"><%= recommend_dog.dog_size_type.name %></div>
           <h5 class="card-text mb-auto"><%= recommend_dog.catchphrase %></h5>
-          <%= link_to "#", class: "icon-link gap-1 icon-link-hover stretched-link" do %>
+          <%= link_to dog_path(recommend_dog.id), class: "icon-link gap-1 icon-link-hover stretched-link" do %>
             <%= "#{recommend_dog.breed}の詳細はこちら" %>
             <svg class="bi"><use xlink:href="#chevron-right"/></svg>
           <% end %>
