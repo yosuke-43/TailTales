@@ -69,3 +69,23 @@ ja:
     new:
       title: '犬種マッチ診断'
       sumit_to_result: '診断結果へ'
+  dogs:
+    index:
+      title: '犬種一覧'
+      no_result: '見つかりませんでした'
+    show:
+      title: '犬種詳細'
+      size: "サイズ"
+      country: "原産国"
+      height: "体高"
+      weight: "体重"
+      hair_length: "毛の長さ"
+      activity_level: "運動量"
+      solitude_tolerance: "留守番耐性"
+      care_difficulty: "飼育難易度"
+      to_board: "%{item}の投稿はこちらから"
+      dog-base-info: '犬種基本情報'
+      dog-detail-info: '犬種詳細情報'
+      dog-movie-info: '犬種動画'
+      to-related-videos-url: 'の動画はこちらから検索'
+      to-related-videos-button: 'Click here'

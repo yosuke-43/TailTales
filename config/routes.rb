@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     end
   end
 
+  # Dog関連のルーティング
+  resources :dogs, only: [:show, :index]
+
   # お気に入り投稿のルーティング
   resources :bookmarks, only: %i[create destroy]
 

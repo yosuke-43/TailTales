@@ -1,0 +1,181 @@
+<% content_for(:title, t('.title')) %>
+
+<div class="dog-show-background">
+  <div class="container">
+    <%# 1つ目のブロック、写真と犬種名のブロック-------------------------------- %>
+    <div class="row align-items-center py-4 dog-picture-info">
+      <div class="subtitle">
+        <h1><%= t('.title') %></h1>
+      </div>
+      <div class="col-md-7 d-flex justify-content-center align-items-center">
+        <%= image_tag "dog_image/#{@dog.id}.jpeg", class: 'dog-image' %>
+      </div>
+      <div class="col-md-5">
+        <!-- テキストを挿入する -->
+        <div class="d-flex flex-column justify-content-center h-100">
+          <h1 class="text-center dog-breed"><%= @dog.breed %></h1>
+          <p class="text-center"><%= @dog.catchphrase %></p>
+        </div>
+      </div>
+    </div>
+    <%# 2つ目のブロック、犬種基本情報のブロック--------------------------------- %>
+    <div class="row align-items-center py-5 dog-base-info gutter-2">
+      <div class="subtitle">
+        <h1><%= t('.dog-base-info') %></h1>
+      </div>
+      <div class="col-md-4">
+        <div class="rectangle-block block-1 d-flex align-items-center">
+          <div class="dog-base-info-icon-horizontal-margin" >
+            <i class="fa-solid fa-dog" style="font-size: 3.5rem;"></i>
+          </div>
+          <div class="dog-base-info-text-container">
+            <h3><%= t('.size') %></h3>
+            <p><%= @dog.dog_size_type.name %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="rectangle-block block-2 d-flex align-items-center">
+          <div class="dog-base-info-icon-horizontal-margin" >
+            <i class="fa-solid fa-earth-asia" style="font-size: 3.5rem;"></i>
+          </div>
+          <div class="dog-base-info-text-container">
+            <h3><%= t('.country') %></h3>
+            <p><%= @dog.dog_country.name %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="rectangle-block block-3 d-flex align-items-center">
+          <div class="dog-base-info-icon-horizontal-margin" >
+            <i class="fa-solid fa-up-down" style="font-size: 3.5rem;"></i>
+          </div>
+          <div class="dog-base-info-text-container">
+            <h3><%= t('.height') %></h3>
+            <p><%= @dog.height %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="rectangle-block block-4 d-flex align-items-center">
+          <div class="dog-base-info-icon-horizontal-margin" >
+            <i class="fa-solid fa-weight-scale" style="font-size: 3rem;"></i>
+          </div>
+          <div class="dog-base-info-text-container">
+            <h3><%= t('.weight') %></h3>
+            <p><%= @dog.weight %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="rectangle-block block-5 d-flex align-items-center">
+          <div class="dog-base-info-icon-horizontal-margin" >
+            <i class="fa-solid fa-ruler" style="font-size: 3rem;"></i>
+          </div>
+          <div class="dog-base-info-text-container">
+            <h3><%= t('.hair_length') %></h3>
+            <p><%= I18n.t("activerecord.attributes.dog.hair_length.#{@dog.hair_length}") %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="rectangle-block block-1 d-flex align-items-center">
+          <div class="dog-base-info-icon-horizontal-margin" >
+            <i class="fa-solid fa-dumbbell" style="font-size: 3rem;"></i>
+          </div>
+          <div class="dog-base-info-text-container">
+            <h3><%= t('.activity_level') %></h3>
+            <p><%= I18n.t("activerecord.attributes.dog.activity_level.#{@dog.activity_level}") %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="rectangle-block block-2 d-flex align-items-center">
+          <div class="dog-base-info-icon-horizontal-margin" >
+            <i class="fa-solid fa-house" style="font-size: 3rem;"></i>
+          </div>
+          <div class="dog-base-info-text-container">
+            <h3><%= t('.solitude_tolerance') %></h3>
+            <p><%= I18n.t("activerecord.attributes.dog.solitude_tolerance.#{@dog.solitude_tolerance}") %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="rectangle-block block-3 d-flex align-items-center">
+          <div class="dog-base-info-icon-horizontal-margin" >
+            <i class="fa-solid fa-hand-holding-hand" style="font-size: 3rem;"></i>
+          </div>
+          <div class="dog-base-info-text-container">
+            <h3><%= t('.care_difficulty') %></h3>
+            <p><%= I18n.t("activerecord.attributes.dog.care_difficulty.#{@dog.care_difficulty}") %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%# 3つ目のブロック、犬種詳細情報のブロック--------------------------------- %>
+    <div class="row align-items-center py-5 dog-detail-info gutter-2">
+      <div class="subtitle">
+        <h1><%= t('.dog-detail-info') %></h1>
+      </div>
+      <div class="col-md-6">
+        <div class="rectangle-block detail-block">
+          <h2 class="text-body-emphasis"><i class="fa-solid fa-pen"></i> <%= t("activerecord.attributes.dog.features_sentence") %></h2>
+          <div class="d-flex align-items-center">
+            <p><%= @dog.features_sentence %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="rectangle-block detail-block">
+          <h2 class="text-body-emphasis"><i class="fa-solid fa-pen"></i> <%= t("activerecord.attributes.dog.personality_sentence") %></h2>
+          <div class="d-flex align-items-center">
+            <p><%= @dog.personality_sentence %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="rectangle-block detail-block">
+          <h2 class="text-body-emphasis"><i class="fa-solid fa-pen"></i> <%= t("activerecord.attributes.dog.features_sentence") %></h2>
+          <div class="d-flex align-items-center">
+            <p><%= @dog.history_sentence %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="rectangle-block detail-block">
+          <h2 class="text-body-emphasis"><i class="fa-solid fa-pen"></i> <%= t("activerecord.attributes.dog.recommended_for_whom") %></h2>
+          <div class="d-flex align-items-center">
+            <p><%= @dog.recommended_for_whom %></p>
+          </div>
+        </div>
+      </div>
+    <%# 4つ目のブロック、犬種動画ののブロック--------------------------------- %>
+    <div class="row align-items-center py-5 dog-youtube-info gutter-2">
+      <div class="subtitle">
+        <h1><%= t('.dog-movie-info') %></h1>
+      </div>
+      <div class="col-md-7 d-flex justify-content-center align-items-center youtube">
+        <%= tag.iframe(
+          src: "https://www.youtube.com/embed/#{@dog.youtube_url}", 
+          width: "100%", 
+          style: "height: 100%",
+          frameborder: 0, 
+          allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", 
+          referrerpolicy: "strict-origin-when-cross-origin", 
+          allowfullscreen: true) %>
+      </div> 
+      <div class="col-md-5">
+        <div class="d-flex flex-column justify-content-center h-100">
+          <h4 class="text-center">
+            <%= "#{@dog.breed}" + "#{t('.to-related-videos-url')}" %>
+          </h4>
+          <div class="text-center mt-3">
+            <%= link_to "https://www.youtube.com/results?search_query=#{@dog.breed}", class: 'btn btn-primary', target: "_blank" do %>
+              <%= t('.to-related-videos-button') %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

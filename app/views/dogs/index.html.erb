@@ -1,0 +1,40 @@
+<% content_for(:title, t('.title')) %>
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-12">
+      
+<% 
+=begin
+%>
+      <!-- 検索フォーム -->
+      <%= content_tag(:div, class: 'mb-1') do %>
+        <%= content_tag(:i, nil, class: 'fas fa-search', style: 'margin-right: 5px;') %> 犬種検索
+      <% end %>
+      <%= search_form_for @q, url: dogs_path do |f| %>
+        <div class="input-group mb-3">
+          <%= f.select :breed_cont, options_for_select(@displayed_dogs_pulldown, @q.breed_cont), { include_blank: t('defaults.message.select_dog_breed'), class: 'form-control' } %>
+          <div class="input-group-append">
+            <input type="submit" value="検索" class="btn btn-primary" />
+          </div>
+        </div>
+      <% end %>
+<%
+=end
+%>
+
+    </div>
+  </div>
+  
+  <!-- 犬種一覧 -->
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <% if @displayed_dogs.present? %>
+          <%= render @displayed_dogs %>
+        <% else %>
+          <p><%= t('.no_result') %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

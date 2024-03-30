@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_26_132723) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_30_064148) do
   create_table "answers", force: :cascade do |t|
     t.text "content"
     t.text "explain"
@@ -96,6 +96,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_26_132723) do
     t.integer "display_in_index", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "youtube_url"
     t.index ["dog_country_id"], name: "index_dogs_on_dog_country_id"
     t.index ["dog_size_type_id"], name: "index_dogs_on_dog_size_type_id"
   end
