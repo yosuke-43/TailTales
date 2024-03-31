@@ -8,7 +8,7 @@ class DiagnosesController < ApplicationController
   def create
     user_answers_hash = params[:answers]
     user_answers_array = user_answers_hash.values
-    redirect_to diagnoses_path(user_answers: user_answers_array)
+    redirect_to diagnoses_result_path(user_answers: user_answers_array)
   end
 
   def result

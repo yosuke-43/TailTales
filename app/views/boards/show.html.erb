@@ -1,4 +1,8 @@
+<%# タブ名の設定 %>
 <% content_for(:title, t('.title')) %>
+<%# パンクズリストの読み込み %>
+<% breadcrumb :board_show, @board %>
+
 <div class="container pt-5">
   <div class="row mb-3">
     <div class="col-lg-8 offset-lg-2">
