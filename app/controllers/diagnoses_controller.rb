@@ -37,7 +37,8 @@ class DiagnosesController < ApplicationController
     max_temp_count = dog_with_temp_count_array.map(&:temp_count).max
     # 最大のtemp_countを持つ犬種のみに絞る
     @recommend_dogs = dog_with_temp_count_array.select { |dog| dog.temp_count == max_temp_count }
-    
+    # シェア用に名前だけにする
+    @share_recommend_dogs = @recommend_dogs.pluck(:breed).map { |breed| "「#{breed}」" }.join("")
   end
 
 end
