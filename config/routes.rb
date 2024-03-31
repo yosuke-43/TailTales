@@ -25,5 +25,5 @@ Rails.application.routes.draw do
 
   #診断関係のルーティング
   resources :diagnoses, only: [:new, :create]
-  get 'diagnoses', to: 'diagnoses#result'
+  get 'diagnoses_result', to: 'diagnoses#result'
 end

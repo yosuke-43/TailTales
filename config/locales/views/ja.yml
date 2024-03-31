@@ -69,6 +69,8 @@ ja:
     new:
       title: '犬種マッチ診断'
       sumit_to_result: '診断結果へ'
+    result:
+      title: '診断結果'
   dogs:
     index:
       title: '犬種一覧'

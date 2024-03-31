@@ -1,3 +1,9 @@
+<%# タブ名の設定 %>
+<% content_for(:title, t('.title')) %>
+<%# パンクズリストの読み込み %>
+<% breadcrumb :new_diagnosis %>
+
+<%# JSの読み込み %>
 <% content_for :js do %>
   <%= javascript_import_module_tag "diagnosis/new" %>
 <% end %>
