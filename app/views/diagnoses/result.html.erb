@@ -1,7 +1,22 @@
-<h1>診断結果</h1>
+<div class="container">
+  <h1>診断結果</h1>
+  <% if @recommend_dogs.present? %>
+    <%= render partial: "recommend_dog", collection: @recommend_dogs %>
+  <% else %>
+    <p><%= t('.no_match') %></p>
+  <% end %>
 
-<% if @recommend_dogs.present? %>
-  <%= render partial: "recommend_dog", collection: @recommend_dogs %>
-<% else %>
-  <p><%= t('.no_match') %></p>
-<% end %>
+<!-- Twitter共有ボタン -->
+  <div style="text-align: center;">
+    <%# 環境に合わせてシェアするURLを変更する %>
+    <% share_text = "私におすすめの犬種は、#{@share_recommend_dogs}です！\n#TailTales\n#犬種マッチ診断\n" %>
+    <%= link_to(
+      "https://twitter.com/intent/tweet?url=http://test&text=#{CGI.escape(share_text)}", 
+      target: "_blank", 
+      class: "twitter-share-button") do %>
+      <div style="display: flex; align-items: center; justify-content: center;">
+        <h3 style="margin: 0;"><i class="fa-brands fa-x-twitter"></i> 診断結果をシェア</h3>
+      </div>
+    <% end %>
+  </div>
+</div>
