@@ -1,7 +1,7 @@
 class DogsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
   def index
-    @displayed_dogs = Dog.where(display_in_index: 1)
+    @dogs = Dog.where(display_in_index: 1)
   end
 
   def show

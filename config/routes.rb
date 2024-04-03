@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   end
 
   # Dog関連のルーティング
+  namespace :dogs do
+    resources :lists, only: :index, defaults: { format: :json}
+  end
+
   resources :dogs, only: [:show, :index]
 
   # お気に入り投稿のルーティング

@@ -2,39 +2,26 @@
 <% content_for(:title, t('.title')) %>
 <%# パンクズリストの読み込み %>
 <% breadcrumb :dogs %>
+<%# JSの読み込み %>
+<% content_for :js do %>
+  <%= javascript_import_module_tag "dog/index" %>
+<% end %>
 
 <div class="container pt-3">
-  <div class="row">
-    <div class="col-lg-10 offset-lg-12">
-
-<% 
-=begin
-%>
-      <!-- 検索フォーム -->
-      <%= content_tag(:div, class: 'mb-1') do %>
-        <%= content_tag(:i, nil, class: 'fas fa-search', style: 'margin-right: 5px;') %> 犬種検索
-      <% end %>
-      <%= search_form_for @q, url: dogs_path do |f| %>
-        <div class="input-group mb-3">
-          <%= f.select :breed_cont, options_for_select(@displayed_dogs_pulldown, @q.breed_cont), { include_blank: t('defaults.message.select_dog_breed'), class: 'form-control' } %>
-          <div class="input-group-append">
-            <input type="submit" value="検索" class="btn btn-primary" />
-          </div>
-        </div>
-      <% end %>
-<%
-=end
-%>
-
-    </div>
+<%# ----------------------------------------------------------------------------------------------- %>
+  <%# 検索フォーム %>
+  <div class="contents">
+    <%= text_field_tag :breed,'', class: 'js-text_field', placeholder: '犬種を入力してください' %>
+    <ul class="js-lists">
+    </ul>
   </div>
-  
-  <!-- 犬種一覧 -->
+<%# ----------------------------------------------------------------------------------------------- %>
+  <%# 犬種一覧 %>
   <div class="row">
     <div class="col-12">
       <div class="row">
-        <% if @displayed_dogs.present? %>
-          <%= render @displayed_dogs %>
+        <% if @dogs.present? %>
+          <%= render @dogs %>
         <% else %>
           <p><%= t('.no_result') %></p>
         <% end %>

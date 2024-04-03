@@ -77,4 +77,4 @@ gem "font-awesome-sass"
 gem 'faker'
 gem 'pry-rails'
 gem 'gretel'
-
+gem 'ransack'
