@@ -75,6 +75,7 @@ ja:
     index:
       title: '犬種一覧'
       no_result: '見つかりませんでした'
+      search_word: '犬種名を入力してください'
     show:
       title: '犬種詳細'
       size: "サイズ"

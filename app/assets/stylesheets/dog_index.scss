@@ -1,0 +1,30 @@
+.input-group {
+  .js-text_field {
+    border: 1px solid #ccc; /* 枠の色をグレーに設定 */
+    border-radius: 5px; /* 枠の角を丸くする */
+    padding: 8px; /* 入力欄の内側の余白 */
+    font-size: 16px; /* テキストのフォントサイズ */
+    width: 50%; /* 幅を100%に設定 */
+
+    &:focus {
+      outline: none; /* フォーカス時のアウトラインを削除 */
+      border-color: #007bff; /* フォーカス時の枠の色をブルーに変更 */
+    }
+  }
+}
+
+.js-lists {
+  padding-left: 0;
+  width: 50%; /* 画面の半分の幅に設定 */
+
+  .dog-list {
+    padding: 5px; /* 枠の内側の余白 */
+    margin-bottom: 5px; /* リストアイテム間の余白 */
+    cursor: pointer; /* ポインター形状を変更してクリック可能であることを示す */
+    list-style-type: none; /* 箇条書きのマーカーを非表示にする */
+
+    &:hover {
+      background-color: #f0f0f0; /* ホバー時の背景色 */
+    }
+  }
+}

@@ -16,4 +16,9 @@ class Dog < ApplicationRecord
   #attr_accessor(一時的なカラム、DB保存なし)の設定
   attr_accessor :temp_count
 
+  # ransackを使用するための設定
+  def self.ransackable_attributes(auth_object = nil)
+    ["breed"]
+  end
+
 end
