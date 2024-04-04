@@ -11,7 +11,8 @@ ja:
         password_confirmation: 'パスワード（確認用）'
       board:
         title: 'タイトル'
-        body: '本文'  
+        body: '本文'
+        dog_id: '犬種'
         created_at: '投稿日時'
       comment:
         body: 'コメント'

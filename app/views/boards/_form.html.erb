@@ -1,26 +1,31 @@
+<%# JSの読み込み %>
+<% content_for :js do %>
+  <%= javascript_import_module_tag "dog/index" %>
+<% end %>
+
 <%= form_with model: board, data: { turbo_method: :post } do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-    <div class="form-group">
+    <div class="form-group mb-2">
       <%= f.label :title %>
-      <%= f.text_field :title, class: 'form-control' %>
+      <%= f.text_field :title, class: 'form-control', placeholder: t('boards.new.input_title') %>
     </div>
-    <div class="form-group">
+    <div class="form-group mb-2">
       <%= f.label :body %>
-      <%= f.text_area :body, class: 'form-control', rows: 10 %>
+      <%= f.text_area :body, class: 'form-control', rows: 10, placeholder: t('boards.new.input_body') %>
+    </div>
+    <div class="form-group mb-2">
+      <%= f.label :dog_id %>
+      <%= f.collection_select :dog_id, @dogs, :id, :breed, { prompt: t('boards.new.choose_breed') }, class: 'form-control' %>
     </div>
 <%
 =begin 
 %>
-   <div class="form-group">
-     <%= f.label :dog_id, t('boards.new.what_breed') %>
-     <%= f.collection_select :dog_id, @dogs, :id, :breed, { prompt: t('boards.new.what_breed_prompt') }, class: 'form-control' %>
-   </div>
   <div class="form-group">
     <%= f.label :board_image %>
-    <%= f.file_field :board_image, id: 'board_board_image', class: 'form-control mb-3', accept: 'image/*' %>
+    <%= f.file_field :board_image, id: 'board_board_image', class: 'form-control mb-2', accept: 'image/*' %>
     <%= f.hidden_field :board_image_cache %>
   </div>
-  <div class="mt-3 mb-3">
+  <div class="mt-3 mb-2">
 	  <%# 以下はプレビュー画面を表示するコード %>
     <%= image_tag board.board_image.url, id: 'preview', size: '200x200' %>
     <%= javascript_include_tag 'board_form' %>

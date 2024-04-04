@@ -43,6 +43,10 @@ ja:
     new:
       title: '投稿作成'
       post: '投稿する'
+      what_breed: '犬種'
+      input_title: 'タイトルを入力してください（必須）'
+      input_body: '本文を入力してください（必須）'
+      choose_breed: '犬種を選択してください（任意）'
     create:
       success: '投稿しました'
       fail: '投稿できませんでした'
@@ -50,6 +54,9 @@ ja:
       title: '投稿一覧'
       post: '投稿する'
       before_login_post: 'ログインして投稿する'
+      no_board: '投稿はまだありません'
+      dog_search_word: '犬種名を入力してください'
+      title_or_body_search_word: '投稿のキーワードを入力してください'
     show:
       title: '投稿詳細'
       to_board_index: '投稿一覧へ戻る'
@@ -59,6 +66,8 @@ ja:
     bookmarks:
       title: 'お気に入り投稿'
       no_result: 'お気に入り投稿はありません'
+      dog_search_word: '犬種名を入力してください'
+      title_or_body_search_word: '投稿のキーワードを入力してください'
   comments:
     partial:
       require_comment: 'コメントを入力してください'

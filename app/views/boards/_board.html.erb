@@ -26,6 +26,24 @@
             <% end %>
           <% end %>
         </div>
+
+        <div class="mt-2">
+          <% if board.dog_id.present? %> <%# 投稿時に犬種情報を入力しているか %>
+            <h5 class="d-flex align-items-center mb-0">
+              <% if board.dog.display_in_index == 1 %>
+                <%= link_to dog_path(board.dog), class: "text-decoration-none" do %>
+                  <i class="fa-solid fa-dog"></i>
+                  <%= board.dog.breed %>
+                <% end %>
+              <% else %>
+                <div class='text-decoration-none text-primary-emphasis'>
+                  <i class="fa-solid fa-dog"></i>
+                  <%= board.dog.breed %>
+                </div>
+              <% end %>
+            </h5>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

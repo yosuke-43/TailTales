@@ -12,7 +12,7 @@
   <%# 検索フォーム %>
   <%= search_form_for @q, url: dogs_path do |f| %>
     <div class="input-group mb-3">
-      <%= f.search_field :breed_cont, class: 'js-text_field', placeholder: t('.search_word'), size: 50, autocomplete: 'off' %>
+      <%= f.search_field :breed_cont, class: 'js-text_field', placeholder: t('.search_word'), size: 50, autocomplete: 'off', data: { limited_breeds: 'limited_display' }  %>
       <div class="input-group-append">
         <%= f.submit class: 'btn btn-primary' %>
       </div>
