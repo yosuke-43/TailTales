@@ -37,6 +37,21 @@
   border-radius: 10px;
 }
 
+.dog-picture-info {
+  .btn {
+    border: none; // 枠の色を黒色に設定
+    background-color: lightblue; // ボタンの背景色をlightblueに設定
+    color: white; // 文字の色を白色に設定
+    margin-top: 10px; // 上部に10pxの余白を設定
+    font-weight: bold;
+    transition: filter 0.3s; // ホバー時のアニメーションを設定
+    &:hover {
+      filter: brightness(85%); // ホバー時に色を85%暗くする
+    }
+  }
+}
+
+
 // 2個目のブロック、dog-base-infoについて-------------------------------------------------------
 .dog-base-info .col-md-4 {
   margin-bottom: 20px; /* 縦方向の間隔を追加 */

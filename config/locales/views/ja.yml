@@ -101,3 +101,10 @@ ja:
       dog-movie-info: '犬種動画'
       to-related-videos-url: 'の動画はこちらから検索'
       to-related-videos-button: 'Click here'
+  views:
+    pagination:
+      first: <i class="fas fa-angle-double-left"></i>
+      last: <i class="fas fa-angle-double-right"></i>
+      previous: <i class="fas fa-angle-left"></i>
+      next: <i class="fas fa-angle-right"></i>
+      truncate: "..."
