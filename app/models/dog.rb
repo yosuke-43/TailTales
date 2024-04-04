@@ -3,6 +3,7 @@ class Dog < ApplicationRecord
   belongs_to :dog_size_type
   belongs_to :dog_country
   has_many :dog_answer_relationships, dependent: :destroy
+  has_many :boards, dependent: :destroy
 
   # バリデーションの設定
   validates :breed, presence: true

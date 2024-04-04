@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_30_064148) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_03_151714) do
   create_table "answers", force: :cascade do |t|
     t.text "content"
     t.text "explain"
@@ -26,6 +26,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_30_064148) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "dog_id"
+    t.index ["dog_id"], name: "index_boards_on_dog_id"
     t.index ["user_id"], name: "index_boards_on_user_id"
   end
 
@@ -118,6 +120,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_30_064148) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "boards", "dogs"
   add_foreign_key "boards", "users"
   add_foreign_key "bookmarks", "boards"
   add_foreign_key "bookmarks", "users"

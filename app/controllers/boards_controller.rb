@@ -1,23 +1,33 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: %i[edit update destroy]
+  before_action :set_dog_choice, only: %i[new edit]
   skip_before_action :require_login, only: [:index, :show]
 
   def new
     @board = Board.new
+    @dogs = Dog.all.order(breed: :asc)
   end
 
   def create
     @board = current_user.boards.build(board_params)
+    
     if @board.save
       redirect_back_or_to boards_path, success: t('.success')
     else
       flash.now[:danger] = t('.fail')
+      @dogs = Dog.all.order(breed: :asc)
       render :new, status: :unprocessable_entity
     end
   end
 
   def index
-    @boards = Board.all.includes(:user).order(created_at: :desc)
+    @q = Board.ransack(params[:q])
+    @boards = @q.result.includes(:user, :dog).order(created_at: :desc)
+  end
+
+  def bookmarks
+    @q = current_user.bookmark_boards.ransack(params[:q])
+    @bookmark_boards = @q.result(distinct: true).includes(:user, :dog).order(created_at: :desc)
   end
 
   def show
@@ -42,10 +52,6 @@ class BoardsController < ApplicationController
     redirect_to boards_path, success: t('defaults.message.deleted', item: Board.model_name.human)
   end
 
-  def bookmarks
-    @bookmark_boards = current_user.bookmark_boards.includes(:user).order(created_at: :desc)
-  end
-
   # -------------------------------------------------------------------------------------------------------
   private
 
@@ -53,8 +59,12 @@ class BoardsController < ApplicationController
     @board = current_user.boards.find(params[:id])
   end
 
+  def set_dog_choice
+    @dogs = Dog.all.order(breed: :asc)
+  end
+
   def board_params
-    params.require(:board).permit(:title, :body)
+    params.require(:board).permit(:title, :body, :dog_id)
   end
 
 end

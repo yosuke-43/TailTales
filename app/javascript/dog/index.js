@@ -1,5 +1,6 @@
 $(document).on('turbo:load', function () {
   $(function () {
+    var limitedBreeds = $('.js-text_field').data('limitedBreeds'); // 犬種検索に制限をかけたいページの変数を取得
     $('.js-text_field').on('keyup', function () {
       var user_input = $.trim($(this).val());
 
@@ -13,7 +14,7 @@ $(document).on('turbo:load', function () {
       $.ajax({
         type: 'GET', // リクエストのタイプ
         url: '/dogs/lists', // リクエストを送信するURL
-        data:  { breed: user_input }, // サーバーに送信するデータ
+        data:  { breed: user_input, limited_breeds: limitedBreeds }, // サーバーに送信するデータ
         dataType: 'json' // サーバーから返却される型
       })
       .done(function (data) {
