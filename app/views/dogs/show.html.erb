@@ -20,6 +20,10 @@
           <p class="text-center"><%= @dog.catchphrase %></p>
         </div>
       </div>
+      <%= link_to t('.to_board', 
+                  item: @dog.breed), 
+                  boards_path(q: { dog_breed_eq: @dog.breed }), 
+                  class: 'btn btn-primary btn-lg col-md-7' %>
     </div>
     <%# 2つ目のブロック、犬種基本情報のブロック--------------------------------- %>
     <div class="row align-items-center py-5 dog-base-info gutter-2">

@@ -22,12 +22,12 @@ class BoardsController < ApplicationController
 
   def index
     @q = Board.ransack(params[:q])
-    @boards = @q.result.includes(:user, :dog).order(created_at: :desc)
+    @boards = @q.result.includes(:user, :dog).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def bookmarks
     @q = current_user.bookmark_boards.ransack(params[:q])
-    @bookmark_boards = @q.result(distinct: true).includes(:user, :dog).order(created_at: :desc)
+    @bookmark_boards = @q.result(distinct: true).includes(:user, :dog).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def show
