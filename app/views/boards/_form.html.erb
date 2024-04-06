@@ -1,6 +1,7 @@
 <%# JSの読み込み %>
 <% content_for :js do %>
   <%= javascript_import_module_tag "dog/index" %>
+  <%= javascript_import_module_tag "board/board_image" %>
 <% end %>
 
 <%= form_with model: board, data: { turbo_method: :post } do |f| %>
@@ -17,22 +18,13 @@
       <%= f.label :dog_id %>
       <%= f.collection_select :dog_id, @dogs, :id, :breed, { prompt: t('boards.new.choose_breed') }, class: 'form-control' %>
     </div>
-<%
-=begin 
-%>
-  <div class="form-group">
-    <%= f.label :board_image %>
-    <%= f.file_field :board_image, id: 'board_board_image', class: 'form-control mb-2', accept: 'image/*' %>
-    <%= f.hidden_field :board_image_cache %>
-  </div>
-  <div class="mt-3 mb-2">
-	  <%# 以下はプレビュー画面を表示するコード %>
-    <%= image_tag board.board_image.url, id: 'preview', size: '200x200' %>
-    <%= javascript_include_tag 'board_form' %>
-  </div>
-<%
-=end 
-%>
-
-    <%= f.submit t('defaults.message.to_post'), class: 'btn btn-primary' %>
+    <div class="form-group">
+      <%= f.label :board_image %>
+      <%= f.file_field :board_image, id: 'board_board_image', class: 'form-control mb-2', accept: 'image/*' %>
+      <%= f.hidden_field :board_image_cache %>
+    </div>
+    <div class="mt-3 mb-2">
+      <%= image_tag board.board_image.url(:medium), id: 'preview', size: '200x200' %>
+    </div>
+      <%= f.submit t('defaults.message.to_post'), class: 'btn btn-primary' %>
   <% end %>

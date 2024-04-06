@@ -14,6 +14,7 @@ ja:
         body: '本文'
         dog_id: '犬種'
         created_at: '投稿日時'
+        board_image: '投稿写真'
       comment:
         body: 'コメント'
         created_at: 'コメント投稿日時'
