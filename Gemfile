@@ -80,3 +80,5 @@ gem 'gretel'
 gem 'ransack'
 gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
+gem 'carrierwave'
+gem "mini_magick"

@@ -12,7 +12,7 @@
         <div class="card-body">
           <div class='row'>
             <div class='col-md-3'>
-              <%= image_tag "board_placeholder", class: 'card-img-top img-fluid', size: '200x200' %>
+              <%= image_tag @board.board_image_url(:medium), class: 'card-img-top img-fluid', size: '200x200' %>
             </div>
             <div class='col-md-9'>
               <h3 class="d-inline"><%= @board.title %></h3>
@@ -20,12 +20,29 @@
                 <li class="list-inline-item">by <%= "#{@board.user.name}さん" %></li>
                 <li class="list-inline-item"><%= t('activerecord.attributes.board.created_at') %>：<%= l @board.created_at, format: :long  %></li>
               </ul>
+              <%# ログインユーザーが投稿主かどうか %>
               <% if logged_in? %>
                 <% if current_user.own?(@board) %>
                   <%= render 'crud_menus', board: @board %>
                 <% else %>
                   <%= render 'bookmark_button', board: @board %>
                 <% end %>
+              <% end %>
+              <%# 投稿時に犬種情報を入力しているか %>
+              <% if @board.dog_id.present? %>
+                <h5 class="d-flex align-items-center mb-0">
+                  <% if @board.dog.display_in_index == 1 %>
+                    <%= link_to dog_path(@board.dog), class: "text-decoration-none" do %>
+                      <i class="fa-solid fa-dog"></i>
+                      <%= @board.dog.breed %>
+                    <% end %>
+                  <% else %>
+                    <div class='text-decoration-none text-primary-emphasis'>
+                      <i class="fa-solid fa-dog"></i>
+                      <%= @board.dog.breed %>
+                    </div>
+                  <% end %>
+                </h5>
               <% end %>
             </div>
           </div>
