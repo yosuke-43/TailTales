@@ -1,4 +1,4 @@
-5.times do
+7.times do
   User.create!(
     name: Faker::JapaneseMedia::Doraemon.unique.character,
     email: Faker::Internet.unique.email,
@@ -7,7 +7,7 @@
   )
 end
 
-10.times do |index|
+15.times do |index|
   Board.create!(
     user: User.offset(rand(1..User.count - 1)).first,
     title: "タイトル：#{Faker::Music::RockBand.unique.name}",
