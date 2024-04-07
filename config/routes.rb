@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#top'
+  get 'terms', to: 'static_pages#terms_of_service'
+  get 'privacy_policy', to: 'static_pages#privacy_policy'
 
   # ログイン/ログアウト関連のルーティング
   get 'login', to: 'user_sessions#new'
