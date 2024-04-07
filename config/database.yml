@@ -20,6 +20,15 @@ test:
   <<: *default
   database: storage/test.sqlite3
 
+# デフォルト設定では本番環境のDB設定は下記になっていた。
+# production:
+#   <<: *default
+#   database: storage/production.sqlite3
+
+# 本番用のデータベースをPostgresqlに変更する
 production:
   <<: *default
-  database: storage/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
