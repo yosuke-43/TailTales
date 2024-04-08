@@ -91,3 +91,4 @@ gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
 gem 'carrierwave'
 gem "mini_magick"
+gem "meta-tags"
