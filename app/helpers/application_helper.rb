@@ -16,12 +16,12 @@ module ApplicationHelper
         title: page_title.empty? ? 'TailTales' : "TailTales | #{page_title}",
         type: 'website',
         url: request.original_url,
-        image: image_url('logo.jpg'),
+        image: image_url('top_explain_block_04'),
         locale: 'ja_JP'
       },
       twitter: {
         card: 'summary_large_image',
-        image: image_url('logo.jpg')
+        image: image_url('top_explain_block_04')
       }
     }
   end
