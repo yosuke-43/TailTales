@@ -10,3 +10,18 @@
 .bookmark-count-icon{
   text-decoration: none;
 }
+
+.board-body {
+  word-wrap: break-word; /* 長い単語やURLがはみ出たときに改行する */
+  overflow-wrap: break-word; /* 上記のプロパティのエイリアス */
+}
+
+.comment-label {
+  font-size: 1.25rem; /* 任意のフォントサイズ */
+  font-weight: bold;
+}
+
+.comment-index p {
+  font-size: 1.25rem; /* 任意のフォントサイズ */
+  font-weight: bold;
+}

@@ -2,77 +2,126 @@
 <% content_for(:title, t('.title')) %>
 <%# パンクズリストの読み込み %>
 <% breadcrumb :board_show, @board %>
+<%# OGPの設定 %>
+<% set_meta_tags og:{image: image_url(@board.board_image.url)}, twitter:{image: image_url(@board.board_image.url)} %>
 
-<div class="container pt-5">
-  <div class="row mb-3">
-    <div class="col-lg-12">
-      <h1><%= t('.title') %></h1>
-      <!-- 掲示板内容 -->
-      <article class="card">
-        <div class="card-body">
-          <div class='row'>
-            <div class='col-md-3'>
-              <%= image_tag @board.board_image_url(:medium), class: 'card-img-top img-fluid', size: '400x300' %>
+
+<div class="board-index-background">
+  <div class="container pt-2">
+    <h1><%= t('.title') %></h1>
+
+    <div class="card-body">
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <div class="row g-0 border rounded overflow-hidden shadow-sm position-relative">
+            <!-- 画像の列 -->
+            <div class="col-md-auto py-2">
+              <%= image_tag @board.board_image_url(:medium), class: 'bd-placeholder-img', size: '400x300' %>
             </div>
-            <div class='col-md-9'>
-              <h3 class="d-inline"><%= @board.title %></h3>
-              <ul class="list-inline">
-                <li class="list-inline-item">by <%= "#{@board.user.name}さん" %></li>
-                <li class="list-inline-item"><%= t('activerecord.attributes.board.created_at') %>：<%= l @board.created_at, format: :long  %></li>
-              </ul>
-              <%# ログインユーザーが投稿主かどうか %>
-              <% if logged_in? %>
-                <% if current_user.own?(@board) %>
-                  <%= render 'crud_menus', board: @board %>
-                <% else %>
-                  <%= render 'bookmark_button', board: @board %>
-                <% end %>
-              <% end %>
-              <%# 投稿時に犬種情報を入力しているか %>
-              <% if @board.dog_id.present? %>
-                <h5 class="d-flex align-items-center mb-0">
-                  <% if @board.dog.display_in_index == 1 %>
-                    <%= link_to dog_path(@board.dog), class: "text-decoration-none" do %>
-                      <i class="fa-solid fa-dog"></i>
-                      <%= @board.dog.breed %>
-                    <% end %>
+
+            <!-- 情報の列 -->
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-0 text-primary-emphasis">
+                <%= "#{@board.user.name}さん" %>
+              </strong>
+              <strong class="d-inline-block mb-0 text-primary-emphasis">
+                <%= "#{t('activerecord.attributes.board.created_at')}：#{l @board.created_at, format: :long}" %>
+              </strong>
+              <h2 class="mb-2"><%= link_to @board.title, board_path(@board)  %></h2>
+              <!-- ログインユーザーにのみ表示されるメニュー -->
+              <div class="mt-2">
+                <% if logged_in? %>
+                  <% if current_user.own?(@board) %>
+                    <%= render 'crud_menus', board: @board %>
                   <% else %>
-                    <div class='text-decoration-none text-primary-emphasis'>
-                      <i class="fa-solid fa-dog"></i>
-                      <%= @board.dog.breed %>
-                    </div>
+                    <%= render 'bookmark_button', board: @board %>
                   <% end %>
+                <% end %>
+              </div>
+
+              <div class="mt-2">
+                <strong class="d-inline-block mb-0 text-primary-emphasis">
+                  <i class="fa-regular fa-comments"></i>
+                  <%= "コメント数：#{@board.comments.count}" %>
+                </strong>
+              </div>
+
+              <div class="mt-2">
+                <% if @board.dog_id.present? %> <%# 投稿時に犬種情報を入力しているか %>
+                  <h5 class="d-flex align-items-center mb-0">
+                    <% if @board.dog.display_in_index == 1 %>
+                      <%= link_to dog_path(@board.dog), class: "text-decoration-none" do %>
+                        <i class="fa-solid fa-dog"></i>
+                        <%= @board.dog.breed %>
+                      <% end %>
+                    <% else %>
+                      <div class='text-decoration-none text-primary-emphasis'>
+                        <i class="fa-solid fa-dog"></i>
+                        <%= @board.dog.breed %>
+                      </div>
+                    <% end %>
+                  </h5>
+                <% else %>
+                <strong class="d-inline-block mb-0 text-primary-emphasis">
+                  <%= "犬種情報は未登録です" %>
+                </strong>
+                <% end %>
+              </div>
+
+
+              <div class="mt-2">
+              <h5 class="d-flex align-items-center mb-0">
+                <%# 環境に合わせてシェアするURLを変更する %>
+                <%= link_to(
+                  "https://twitter.com/intent/tweet?text=#{ERB::Util.url_encode("#{@board.title}")}&url=#{ERB::Util.url_encode(request.original_url)}", 
+                  target: "_blank", 
+                  class: "text-decoration-none") do %>
+                  <i class="fa-brands fa-x-twitter"></i>
+                  <%= "投稿内容をシェアする" %>
+                <% end %>
                 </h5>
-              <% end %>
+              </div>
+            </div>
+
+
+            <!-- Bodyの構造 -->
+            <div class="col-md-12">
+              <div class="row g-0">
+                <div class="col p-4" style="overflow-wrap: break-word;">
+                  <%= simple_format(@board.body) %>
+                </div>
+              </div>
             </div>
           </div>
-          <p><%= simple_format(@board.body) %></p>
         </div>
-      </article>
-    </div>
-  </div>
-
-  <!-- コメントフォーム -->
-  <% if logged_in? %>
-    <div id='new_comment_area'>
-      <%= render 'comments/form', { board: @board, comment: @comment } %>
-    </div>
-  <% end %>
-
-  <!-- コメントエリア -->
-  <div id="comment_index_area">
-    <% if @comments.present? %>
-      <%= render 'comments/comments', { comments: @comments } %>
-    <% else %>
-      <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
-        <%= t('.no_comment') %>
       </div>
-    <% end %>
-  </div>
+    </div>
 
-  <%# 投稿一覧に戻るボタンの設置 %>
-  <div class='text-center'>
-    <%= link_to t('.to_board_index'), boards_path %>
+    <!-- コメントフォームとコメントエリア -->
+    <div class="row mb-2 mt-5">
+      <div class="col-md-12">
+        <div id="new_comment_area">
+          <%= render 'comments/form', { board: @board, comment: @comment } %>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div id="comment_index_area">
+          <% if @comments.present? %>
+            <%= render 'comments/comments', { comments: @comments } %>
+          <% else %>
+            <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+              <%= t('.no_comment') %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%# 投稿一覧に戻るボタンの設置 %>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <%= link_to t('.to_board_index'), boards_path %>
+      </div>
+    </div>
   </div>
 </div>
-
