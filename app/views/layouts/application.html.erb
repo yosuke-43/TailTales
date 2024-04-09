@@ -12,16 +12,20 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <%= render 'shared/header' %>
-    <% else %>
-      <%= render 'shared/before_login_header' %>
-    <% end %>
+    <header>
+      <% if logged_in? %>
+        <%= render 'shared/header' %>
+      <% else %>
+        <%= render 'shared/before_login_header' %>
+      <% end %>
+    </header>
     <%= render 'shared/flash_message' %>
     <div class="container">
       <%= breadcrumbs separator: " &rsaquo; " %>
     </div>
     <%= yield %>
-    <%= render 'shared/footer' %>
+    <footer>
+      <%= render 'shared/footer' %>
+    </footer>
   </body>
 </html>

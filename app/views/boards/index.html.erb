@@ -7,40 +7,36 @@
   <%= javascript_import_module_tag "dog/index" %>
 <% end %>
 
-<div class="container pt-3">
-  <!-- 投稿作成誘導ボタン -->
-  <% if logged_in? %>
-    <div class="d-grid gap-2 mb-2">
-      <%= link_to t('boards.index.post'), new_board_path, class: "btn btn-outline-primary", role: "button", data: { turbo_stream: true } %>
-    </div>
-  <% else %>
-    <div class="d-grid gap-2 mb-2">
-      <%= link_to t('boards.index.before_login_post'), new_board_path, class: "btn btn-outline-primary", role: "button" %>
-    </div>
-  <% end %>
-  <%# 検索フォーム %>
-  <%= search_form_for @q, url: boards_path do |f| %>
-    <div class="input-group mb-3">
-      <%= f.search_field :dog_breed_cont, class: 'js-text_field', placeholder: t('.dog_search_word'), size: 50, autocomplete: 'off' %>
-      <%= f.search_field :title_or_body_cont, class: "form-control", placeholder: t('.title_or_body_search_word') %>
-      <div class="input-group-append">
-        <%= f.submit class: 'btn btn-primary' %>
+<div class="board-index-background">
+  <div class="container pt-3">
+    <!-- 投稿作成誘導ボタン -->
+    <% if logged_in? %>
+      <div class="d-grid gap-2 mb-2">
+        <%= link_to t('boards.index.post'), new_board_path, class: "btn btn-outline-primary", role: "button", data: { turbo: false } %>
       </div>
-    </div>
-  <% end %>
-  <ul class="js-lists">
-  </ul>
-  <!-- 掲示板一覧 -->
-  <div class="row">
-    <div class="col-12">
-      <div class="row">
-        <% if @boards.present? %>
-          <%= render @boards %>
-        <% else %>
-          <p><%= t('.no_board') %></p>
-        <% end %>
+    <% else %>
+      <div class="d-grid gap-2 mb-2">
+        <%= link_to t('boards.index.before_login_post'), new_board_path, class: "btn btn-outline-primary", role: "button" %>
       </div>
-    </div>
+    <% end %>
+    <%# 検索フォーム %>
+    <%= search_form_for @q, url: boards_path do |f| %>
+      <div class="input-group mb-3">
+        <%= f.search_field :dog_breed_cont, class: 'js-text_field', placeholder: t('.dog_search_word'), size: 50, autocomplete: 'off' %>
+        <%= f.search_field :title_or_body_cont, class: "form-control", placeholder: t('.title_or_body_search_word') %>
+        <div class="input-group-append">
+          <%= f.submit class: 'btn btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+    <ul class="js-lists">
+    </ul>
+    <!-- 掲示板一覧 -->
+    <% if @boards.present? %>
+      <%= render @boards %>
+    <% else %>
+      <p><%= t('.no_board') %></p>
+    <% end %>
+    <%= paginate @boards, theme: 'bootstrap-5' %>
   </div>
-  <%= paginate @boards, theme: 'bootstrap-5' %>
 </div>

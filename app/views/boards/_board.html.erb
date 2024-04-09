@@ -4,7 +4,7 @@
       
       <!-- 画像の列 -->
       <div class="col-md-auto order-md-first">
-        <%= image_tag board.board_image_url(:medium), class: 'bd-placeholder-img', size: '200x200' %>
+        <%= image_tag board.board_image_url(:medium), class: 'bd-placeholder-img', size: '400x300' %>
       </div>
       
       <!-- 情報の列 -->
@@ -28,6 +28,13 @@
         </div>
 
         <div class="mt-2">
+          <strong class="d-inline-block mb-0 text-primary-emphasis">
+            <i class="fa-regular fa-comments"></i>
+            <%= "コメント数：#{board.comments.count}" %>
+          </strong>
+        </div>
+
+        <div class="mt-2">
           <% if board.dog_id.present? %> <%# 投稿時に犬種情報を入力しているか %>
             <h5 class="d-flex align-items-center mb-0">
               <% if board.dog.display_in_index == 1 %>
@@ -42,6 +49,10 @@
                 </div>
               <% end %>
             </h5>
+          <% else %>
+          <strong class="d-inline-block mb-0 text-primary-emphasis">
+            <%= "犬種情報は未登録です" %>
+          </strong>
           <% end %>
         </div>
       </div>

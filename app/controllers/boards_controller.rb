@@ -22,7 +22,7 @@ class BoardsController < ApplicationController
 
   def index
     @q = Board.ransack(params[:q])
-    @boards = @q.result.includes(:user, :dog).order(created_at: :desc).page(params[:page]).per(10)
+    @boards = @q.result.includes(:user, :dog, :comments).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def bookmarks

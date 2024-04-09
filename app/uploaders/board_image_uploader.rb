@@ -33,7 +33,7 @@ class BoardImageUploader < CarrierWave::Uploader::Base
   #   process resize_to_fit: [50, 50]
   # end
   version :medium do
-    process resize_and_pad: [200, 200, background=:transparent, gravity='Center' ]
+    process resize_and_pad: [400, 300, background=:transparent, gravity='Center' ]
   end
 
   # Add an allowlist of extensions which are allowed to be uploaded.

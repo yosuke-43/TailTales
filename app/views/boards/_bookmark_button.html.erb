@@ -2,18 +2,22 @@
   <% if current_user.bookmark?(board) %>
     <%= link_to bookmark_path(current_user.bookmarks.find_by(board_id: board.id)), 
                 id: "turbo-bookmark-button-for-board-#{board.id}", 
-                class:"float-right", 
+                class:"float-right bookmark-count-icon", 
                 data: { turbo_method: :delete } do %>
       <%= icon 'fas', 'heart' %>
     <% end %>
-    <span class='mx-2'><%= board.bookmarks.count %></span>
+    <strong class="d-inline-block mb-0 text-primary-emphasis">
+      <%= "お気に入り数：#{board.bookmarks.count}" %>
+    </strong>
   <% else %>
     <%= link_to bookmarks_path(board_id: board.id), 
                 id: "turbo-bookmark-button-for-board-#{board.id}", 
-                class:"float-right", 
+                class:"float-right bookmark-count-icon", 
                 data: { turbo_method: :post } do %>
       <%= icon 'far', 'heart' %>
     <% end %>
-    <span class='mx-2'><%= board.bookmarks.count %></span>
+    <strong class="d-inline-block mb-0 text-primary-emphasis">
+      <%= "お気に入り数：#{board.bookmarks.count}" %>
+    </strong>
   <% end %>
 </turbo-frame>
