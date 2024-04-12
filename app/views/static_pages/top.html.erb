@@ -9,7 +9,7 @@
                     <h2 class="display-1 lh-1 mb-3">あなたの理想の相棒が見つかる！</h2>
                     <h1 class="display-1 lh-1 mb-3">犬種マッチ診断</h1>
                     <p class="lead fw-normal text-muted mb-5">わんちゃんを飼うのは初めてでどんな犬種がいるのかわからない？<br>あなたのライフスタイルにマッチするわんちゃんが、たった1分の診断で明らかに！</p>
-                    <%= link_to "今すぐ無料診断", new_diagnosis_path, class: "btn-outline-light py-3 px-5 rounded-pill", data: { turbo_stream: true } %>
+                    <%= link_to "今すぐ無料診断", new_diagnosis_path, class: "btn-outline-light py-3 px-5 rounded-pill", data: { turbo: false } %>
                 </div>
             </div>
         </div>
@@ -79,7 +79,7 @@
         <div class="row gx-5 justify-content-center">
             <div class="col-xl-8">
                 <div class="h2 fs-1 text-white mb-4">1分の犬種診断で<br>あなたにぴったりの相棒を探しませんか？</div>
-                <%= link_to "今すぐ無料診断", new_diagnosis_path, class: "btn-outline-light py-3 px-5 rounded-pill", data: { turbo_stream: true } %>
+                <%= link_to "今すぐ無料診断", new_diagnosis_path, class: "btn-outline-light py-3 px-5 rounded-pill", data: { turbo: false } %>
             </div>
         </div>
     </div>
@@ -139,7 +139,7 @@
             <div class="row gx-5 justify-content-center">
                 <div class="col-xl-8">
                     <div class="h2 fs-1 text-white mb-4">1分の犬種診断で<br>あなたにぴったりの相棒を探しませんか？</div>
-                    <%= link_to "今すぐ無料診断", new_diagnosis_path, class: "btn-outline-light py-3 px-5 rounded-pill", data: { turbo_stream: true } %>
+                    <%= link_to "今すぐ無料診断", new_diagnosis_path, class: "btn-outline-light py-3 px-5 rounded-pill", data: { turbo: false } %>
                 </div>
             </div>
         </div>
