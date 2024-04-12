@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   # 会員登録のルーティング
-  resources :users, only: [:new, :create]
+  resources :users, only: %i[new create]
 
   # 投稿関係のルーティング
   resources :boards do
@@ -21,15 +21,15 @@ Rails.application.routes.draw do
 
   # Dog関連のルーティング
   namespace :dogs do
-    resources :lists, only: :index, defaults: { format: :json}
+    resources :lists, only: :index, defaults: { format: :json }
   end
 
-  resources :dogs, only: [:show, :index]
+  resources :dogs, only: %i[show index]
 
   # お気に入り投稿のルーティング
   resources :bookmarks, only: %i[create destroy]
 
-  #診断関係のルーティング
-  resources :diagnoses, only: [:new, :create]
+  # 診断関係のルーティング
+  resources :diagnoses, only: %i[new create]
   get 'diagnoses_result', to: 'diagnoses#result'
 end
