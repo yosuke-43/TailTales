@@ -22,7 +22,7 @@
           <%= link_to t('defaults.header.to_login'), login_path, class: 'nav-link', data: { turbo_stream: true } %>
         </li>
         <li class="nav-item">
-          <%= link_to t('boards.index.title'), boards_path, class: 'nav-link', data: { turbo_stream: true } %>
+          <%= link_to t('boards.index.title'), boards_path, class: 'nav-link', data: { turbo: false } %>
         </li>
       </ul>
     </div>
