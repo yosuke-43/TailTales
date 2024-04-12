@@ -1,5 +1,4 @@
 class Board < ApplicationRecord
-
   # アップローダークラスとカラムを紐づける
   mount_uploader :board_image, BoardImageUploader
 
@@ -14,11 +13,11 @@ class Board < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   # ransackを使用するための設定
-  def self.ransackable_attributes(auth_object = nil)
-    ["body", "created_at", "dog_id", "id", "id_value", "title", "updated_at", "user_id"]
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[body created_at dog_id id id_value title updated_at user_id]
   end
-  
-  def self.ransackable_associations(auth_object = nil)
-    ["bookmarks", "comments", "dog", "user"]
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[bookmarks comments dog user]
   end
 end

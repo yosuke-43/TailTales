@@ -1,5 +1,5 @@
 class DogsController < ApplicationController
-  skip_before_action :require_login, only: [:index, :show]
+  skip_before_action :require_login, only: %i[index show]
   def index
     @q = Dog.ransack(params[:q])
     @dogs = @q.result(distinct: true).where(display_in_index: 1)

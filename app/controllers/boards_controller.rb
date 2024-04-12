@@ -1,7 +1,7 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: %i[edit update destroy]
   before_action :set_dog_choice, only: %i[new edit]
-  skip_before_action :require_login, only: [:index, :show]
+  skip_before_action :require_login, only: %i[index show]
 
   def new
     @board = Board.new
@@ -10,7 +10,6 @@ class BoardsController < ApplicationController
 
   def create
     @board = current_user.boards.build(board_params)
-    
     if @board.save
       redirect_back_or_to boards_path, success: t('.success')
     else
@@ -36,7 +35,7 @@ class BoardsController < ApplicationController
     @comments = @board.comments.includes(:user).order(created_at: :desc)
   end
 
-  def edit;end 
+  def edit; end
 
   def update
     if @board.update(board_params)
@@ -52,7 +51,6 @@ class BoardsController < ApplicationController
     redirect_to boards_path, success: t('defaults.message.deleted', item: Board.model_name.human)
   end
 
-  # -------------------------------------------------------------------------------------------------------
   private
 
   def set_board
@@ -66,5 +64,4 @@ class BoardsController < ApplicationController
   def board_params
     params.require(:board).permit(:title, :body, :dog_id, :board_image, :board_image_cache)
   end
-
 end

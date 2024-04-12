@@ -33,5 +33,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
+/vendor/*
+.vscode/
+.dockerignore/
 DBのお引越し関連/**
+.rubocop_todo.yml
+.rubocop.yml

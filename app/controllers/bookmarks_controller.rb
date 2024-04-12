@@ -2,7 +2,7 @@ class BookmarksController < ApplicationController
   def create
     @board = Board.find(params[:board_id])
     current_user.bookmark(@board)
-    
+
     render turbo_stream: turbo_stream.replace(
       "bookmark_button_area_#{@board.id}",
       partial: 'boards/bookmark_button',

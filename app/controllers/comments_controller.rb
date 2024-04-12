@@ -3,7 +3,6 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.build(comment_params)
     @board = Board.find(params[:board_id])
     @comments = @board.comments.includes(:user).order(created_at: :desc)
-    
 
     if @comment.save
       @comment = Comment.new

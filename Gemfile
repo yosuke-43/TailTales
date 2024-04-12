@@ -36,7 +36,7 @@ gem "jbuilder"
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem "tzinfo-data", platforms: %i[windows jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -46,7 +46,10 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ]
+  gem "debug", platforms: %i[mri windows]
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
   gem "sqlite3", "~> 1.4"
 end
 
@@ -59,7 +62,6 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-
 end
 
 group :test do
@@ -70,25 +72,25 @@ end
 
 # 本番環境用のgemグループを新しく作成しPostgresを指定
 group :production do
-  gem 'pg', '~> 1.5.5'
-  gem 'uri', '0.10.1'
   gem 'dotenv-rails'
   gem 'fog-aws'
+  gem 'pg', '~> 1.5.5'
+  gem 'uri', '0.10.1'
 end
 
 # 追加gem
 gem 'bootstrap', '~> 5.3.0'
-gem 'jquery-rails'
-gem 'sassc-rails'
-gem 'sorcery'
-gem "rails-i18n", "~> 7.0.0"
-gem "font-awesome-sass"
-gem 'faker'
-gem 'pry-rails'
-gem 'gretel'
-gem 'ransack'
-gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
 gem 'carrierwave'
-gem "mini_magick"
+gem 'faker'
+gem "font-awesome-sass"
+gem 'gretel'
+gem 'jquery-rails'
+gem 'kaminari'
 gem "meta-tags"
+gem "mini_magick"
+gem 'pry-rails'
+gem "rails-i18n", "~> 7.0.0"
+gem 'ransack'
+gem 'sassc-rails'
+gem 'sorcery'
