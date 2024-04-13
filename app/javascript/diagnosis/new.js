@@ -1,5 +1,5 @@
 document.addEventListener("turbo:load", function() {
-  console.log("JavaScript file loaded!");
+  console.log("JavaScript file loaded!!");
   var startContent = document.getElementById("start_content");
   var startLinkContainer = document.getElementById("start_link_container");
   var diagnosticsContainer = document.getElementById("diagnostics_container");
