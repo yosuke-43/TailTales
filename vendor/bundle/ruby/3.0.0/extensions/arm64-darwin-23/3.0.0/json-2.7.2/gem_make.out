@@ -1,0 +1,16 @@
+current directory: /Users/yosuketokito/workspace_runteq/ポートフォリオ_リベンジ/revenge_portfolio/vendor/bundle/ruby/3.0.0/gems/json-2.7.2/ext/json
+/Users/yosuketokito/.rbenv/versions/3.0.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/yosuketokito/workspace_runteq/ポートフォリオ_リベンジ/revenge_portfolio/vendor/bundle/ruby/3.0.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20240413-32119-o4s5i3 sitelibdir\=./.gem.20240413-32119-o4s5i3 clean
+
+current directory: /Users/yosuketokito/workspace_runteq/ポートフォリオ_リベンジ/revenge_portfolio/vendor/bundle/ruby/3.0.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20240413-32119-o4s5i3 sitelibdir\=./.gem.20240413-32119-o4s5i3
+make: Nothing to be done for `all'.
+
+current directory: /Users/yosuketokito/workspace_runteq/ポートフォリオ_リベンジ/revenge_portfolio/vendor/bundle/ruby/3.0.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20240413-32119-o4s5i3 sitelibdir\=./.gem.20240413-32119-o4s5i3 install
+
+current directory: /Users/yosuketokito/workspace_runteq/ポートフォリオ_リベンジ/revenge_portfolio/vendor/bundle/ruby/3.0.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20240413-32119-o4s5i3 sitelibdir\=./.gem.20240413-32119-o4s5i3 clean
