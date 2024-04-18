@@ -3,7 +3,7 @@
 <%# パンクズリストの読み込み %>
 <% breadcrumb :diagnosis_result %>
 <%# OGPの設定 %>
-<% set_meta_tags og:{image: image_url("teacher4.jpg")}, twitter:{image: image_url("teacher2.jpg")} %>
+<% set_meta_tags og:{image: image_url("for_share_logo.jpg")}, twitter:{image: image_url("for_share_logo.jpg")} %>
 
 <div class="container">
   <h1>診断結果</h1>
@@ -19,7 +19,7 @@
     <% share_text = "私におすすめの犬種は、#{@share_recommend_dogs}です！\n#TailTales\n#犬種マッチ診断\n" %>
     <%= link_to(
       "https://twitter.com/intent/tweet?text=#{ERB::Util.url_encode("#{share_text}")}&url=#{ERB::Util.url_encode(root_url)}", 
-      target: "_blank", 
+      target: "_blank",
       class: "twitter-share-button") do %>
       <div style="display: flex; align-items: center; justify-content: center;">
         <h3 style="margin: 0;"><i class="fa-brands fa-x-twitter"></i> 診断結果をシェア</h3>
